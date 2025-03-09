@@ -19,6 +19,7 @@
 ## Get Started
 
 Install nodejs **v8.12.0** first.
+Recommend use **[nvm](https://github.com/nvm-sh/nvm)** in Linux
 
 ### Linux
 
@@ -34,6 +35,9 @@ export TARGET=http://Your-backend
 
 # serve with hot reload at localhost:8080
 npm run dev
+
+# build dist
+npm run build
 ```
 ### Windows
 
@@ -50,6 +54,7 @@ set TARGET=http://Your-backend
 # serve with hot reload at localhost:8080
 npm run dev
 ```
+
 
 ## Screenshots
 
