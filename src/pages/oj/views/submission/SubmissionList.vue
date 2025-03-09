@@ -62,7 +62,60 @@
           result: '',
           username: ''
         },
-        columns: [
+        columns: [],
+        loadingTable: false,
+        submissions: [],
+        total: 30,
+        limit: 20,
+        page: 1,
+        contestID: '',
+        problemID: '',
+        routeName: '',
+        JUDGE_STATUS: '',
+        rejudge_column: false
+      }
+    },
+    mounted () {
+      this.init()
+      this.JUDGE_STATUS = Object.assign({}, JUDGE_STATUS)
+      // 去除submitting的状态 和 两个
+      delete this.JUDGE_STATUS['9']
+      delete this.JUDGE_STATUS['2']
+    },
+    methods: {
+      init () {
+        this.contestID = this.$route.params.contestID
+        let query = this.$route.query
+        this.problemID = query.problemID
+        
+        // Set limit to 100 if problemID exists
+        this.limit = this.problemID ? 150 : 20
+        
+        this.formFilter.myself = query.myself === '1'
+        this.formFilter.result = query.result || ''
+        this.formFilter.username = query.username || ''
+        this.page = parseInt(query.page) || 1
+        if (this.page < 1) {
+          this.page = 1
+        }
+        this.routeName = this.$route.name
+
+        this.columns = this.buildColumns()
+
+        this.getSubmissions()
+      },
+      buildColumns () {
+
+        return [
+          {
+            title: this.problemID
+          ? this.$i18n.t('m.Rank')
+          : this.$i18n.t('m.Index'),
+            align: 'center',
+            render: (h, params) => {
+              return h('span', params.row.rank)
+            }
+          },
           {
             title: this.$i18n.t('m.When'),
             align: 'center',
@@ -169,40 +222,7 @@
               }, params.row.username)
             }
           }
-        ],
-        loadingTable: false,
-        submissions: [],
-        total: 30,
-        limit: 12,
-        page: 1,
-        contestID: '',
-        problemID: '',
-        routeName: '',
-        JUDGE_STATUS: '',
-        rejudge_column: false
-      }
-    },
-    mounted () {
-      this.init()
-      this.JUDGE_STATUS = Object.assign({}, JUDGE_STATUS)
-      // 去除submitting的状态 和 两个
-      delete this.JUDGE_STATUS['9']
-      delete this.JUDGE_STATUS['2']
-    },
-    methods: {
-      init () {
-        this.contestID = this.$route.params.contestID
-        let query = this.$route.query
-        this.problemID = query.problemID
-        this.formFilter.myself = query.myself === '1'
-        this.formFilter.result = query.result || ''
-        this.formFilter.username = query.username || ''
-        this.page = parseInt(query.page) || 1
-        if (this.page < 1) {
-          this.page = 1
-        }
-        this.routeName = this.$route.name
-        this.getSubmissions()
+        ]
       },
       buildQuery () {
         return {
@@ -296,7 +316,9 @@
     computed: {
       ...mapGetters(['isAuthenticated', 'user']),
       title () {
-        if (!this.contestID) {
+        if (this.problemID) {
+          return this.$i18n.t('m.Ranks')
+        } else if (!this.contestID) {
           return this.$i18n.t('m.Status')
         } else if (this.problemID) {
           return this.$i18n.t('m.Problem_Submissions')

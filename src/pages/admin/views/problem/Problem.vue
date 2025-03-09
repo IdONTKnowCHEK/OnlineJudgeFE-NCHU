@@ -170,16 +170,16 @@
         <el-form-item v-if="problem.spj">
           <Accordion :title="$t('m.Special_Judge_Code')">
             <template slot="header">
-              <span>{{$t('m.SPJ_language')}}</span>
+              <!-- <span>{{$t('m.SPJ_language')}}</span>
               <el-radio-group v-model="problem.spj_language">
                 <el-tooltip class="spj-radio" v-for="lang in allLanguage.spj_languages" :key="lang.name" effect="dark"
                             :content="lang.description" placement="top-start">
                   <el-radio :label="lang.name">{{ lang.name }}</el-radio>
                 </el-tooltip>
-              </el-radio-group>
+              </el-radio-group> -->
               <el-button type="primary" size="small" icon="el-icon-fa-random" @click="compileSPJ"
                          :loading="loadingCompile">
-                {{$t('m.Compile')}}
+                {{$t('m.Upload')}}
               </el-button>
             </template>
             <code-mirror v-model="problem.spj_code" :mode="spjMode"></code-mirror>
@@ -471,9 +471,9 @@
         let fileList = response.data.info
         for (let file of fileList) {
           file.score = (100 / fileList.length).toFixed(0)
-          if (!file.output_name && this.problem.spj) {
-            file.output_name = '-'
-          }
+          // if (!file.output_name && this.problem.spj) {
+          //   file.output_name = '-'
+          // }
         }
         this.problem.test_case_score = fileList
         this.testCaseUploaded = true
@@ -486,7 +486,7 @@
         let data = {
           id: this.problem.id,
           spj_code: this.problem.spj_code,
-          spj_language: this.problem.spj_language
+          spj_language: 'C'
         }
         this.loadingCompile = true
         api.compileSPJ(data).then(res => {
@@ -527,8 +527,9 @@
           if (!this.problem.spj_code) {
             this.error.spj = 'Spj code is required'
             this.$error(this.error.spj)
-          } else if (!this.problem.spj_compile_ok) {
-            this.error.spj = 'SPJ code has not been successfully compiled'
+          } 
+          else if (!this.problem.spj_compile_ok) {
+            this.error.spj = 'SPJ code has not been successfully uploaded'
           }
           if (this.error.spj) {
             this.$error(this.error.spj)

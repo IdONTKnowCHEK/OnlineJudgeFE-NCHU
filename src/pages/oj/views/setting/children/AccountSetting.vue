@@ -26,21 +26,21 @@
       <div class="middle separator"></div>
 
       <div class="right">
-        <p class="section-title">{{$t('m.ChangeEmail')}}</p>
+        <p class="section-title">{{$t('Your Email')}}</p>
         <Form class="setting-content" ref="formEmail" :model="formEmail" :rules="ruleEmail">
-          <FormItem label="Current Password" prop="password">
+          <!-- <FormItem label="Current Password" prop="password">
             <Input v-model="formEmail.password" type="password"/>
-          </FormItem>
-          <FormItem label="Old Email">
+          </FormItem> -->
+          <FormItem label="Email">
             <Input v-model="formEmail.old_email" disabled/>
           </FormItem>
-          <FormItem label="New Email" prop="new_email">
+          <!-- <FormItem label="New Email" prop="new_email">
             <Input v-model="formEmail.new_email"/>
           </FormItem>
           <FormItem v-if="visible.tfaRequired" label="Two Factor Auth" prop="tfa_code">
             <Input v-model="formEmail.tfa_code"/>
           </FormItem>
-          <Button type="primary" @click="changeEmail">{{$t('m.ChangeEmail')}}</Button>
+          <Button type="primary" @click="changeEmail">{{$t('m.ChangeEmail')}}</Button> -->
         </Form>
       </div>
     </div>

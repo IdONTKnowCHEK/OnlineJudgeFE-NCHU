@@ -1,4 +1,10 @@
 export const JUDGE_STATUS = {
+  '-3': {
+    name: 'Expired',
+    short: 'EP',
+    color: 'grey',
+    type: 'warning'
+  },
   '-2': {
     name: 'Compile Error',
     short: 'CE',

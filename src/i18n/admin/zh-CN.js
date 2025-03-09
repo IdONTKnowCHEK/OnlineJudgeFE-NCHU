@@ -120,5 +120,10 @@ export const m = {
   Welcome_to_Login: '欢迎登录 OnlineJudge 后台管理系统',
   GO: '登录',
   username: '用户名',
-  password: '密码'
+  password: '密码',
+  Index: 'Index',
+  Ranks: 'Ranks',
+  Upload: 'Upload',
+  Expired: 'Expired',
+  Rank: 'Rank'
 }

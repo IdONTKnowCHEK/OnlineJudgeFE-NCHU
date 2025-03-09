@@ -106,5 +106,10 @@ export const m = {
   DashBoardJudge_Server: 'Judge 伺服器',
   HTTPS_Status: 'HTTPS 狀態',
   Force_HTTPS: '強制 HTTPS',
-  CDN_HOST: 'CDN HOST'
+  CDN_HOST: 'CDN HOST',
+  Index: 'Index',
+  Ranks: 'Ranks',
+  Upload: 'Upload',
+  Expired: 'Expired',
+  Rank: 'Rank'
 }

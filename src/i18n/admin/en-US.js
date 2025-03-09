@@ -120,5 +120,10 @@ export const m = {
   Welcome_to_Login: 'Welcome to Login',
   GO: 'GO',
   username: 'username',
-  password: 'password'
+  password: 'password',
+  Index: 'Index',
+  Ranks: 'Ranks',
+  Upload: 'Upload',
+  Expired: 'Expired',
+  Rank: 'Rank'
 }

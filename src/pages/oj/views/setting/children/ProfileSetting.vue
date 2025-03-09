@@ -67,7 +67,7 @@
       <Row type="flex" :gutter="30" justify="space-around">
         <Col :span="11">
           <FormItem label="Real Name">
-            <Input v-model="formProfile.real_name"/>
+            <Input v-model="formProfile.real_name" disabled/>
           </FormItem>
           <Form-item label="School">
             <Input v-model="formProfile.school"/>

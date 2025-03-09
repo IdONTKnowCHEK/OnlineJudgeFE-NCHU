@@ -117,7 +117,7 @@
 
         <VerticalMenu-item v-if="!this.contestID || OIContestRealTimePermission" :route="submissionRoute">
           <Icon type="navicon-round"></Icon>
-           {{$t('m.Submissions')}}
+           {{$t('m.Ranks')}}
         </VerticalMenu-item>
 
         <template v-if="this.contestID">
