@@ -6,7 +6,6 @@
 [![element-ui](https://img.shields.io/badge/element-2.0.9-blue.svg?style=flat-square)](https://github.com/ElemeFE/element)
 [![Build Status](https://travis-ci.org/QingdaoU/OnlineJudgeFE.svg?branch=master)](https://travis-ci.org/QingdaoU/OnlineJudgeFE)
 
->### A multiple pages app built for OnlineJudge. [Demo](https://qduoj.com)
 
 ## Features
 
@@ -20,6 +19,13 @@
 
 Install nodejs **v8.12.0** first.
 Recommend use **[nvm](https://github.com/nvm-sh/nvm)** in Linux
+
+Download from github
+```bash
+git clone https://github.com/IdONTKnowCHEK/OnlineJudgeFE-NCHU.git
+
+cd OnlineJudgeFE-NCHU
+```
 
 ### Linux
 
